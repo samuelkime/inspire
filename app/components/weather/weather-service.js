@@ -4,7 +4,8 @@ function WeatherService() {
 	var apiUrl = url + encodeURIComponent(url2);
 
 	this.getWeather = function (callWhenDone) {
-		$.get(apiUrl, function (res) {
+		$.get(apiUrl)
+		.then(res =>{
 			res = JSON.parse(res)
 			localStorage.setItem('weather', JSON.stringify(res))
 			// HEY FUN FACT 

@@ -2,6 +2,8 @@ function TodoController() {
 	// new up the TodoService that has already been configured for your use
 	// You will need four methods
 	// getTodos should request your api/todos and give an array of todos to your callback fn
+	
+	
 	// addTodo takes in a todo and posts it to the server
 	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
 	// removeTodo takes in a todoId and sends a delete request to the server
@@ -9,13 +11,15 @@ function TodoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+
+	function getTodos(res){
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
 
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
+		getTodos(todos)
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
 		//DONT FORGET TO LOOP
@@ -49,5 +53,5 @@ function TodoController() {
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-
+	draw(getTodos)
 }

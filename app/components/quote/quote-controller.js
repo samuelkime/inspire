@@ -1,11 +1,12 @@
 function QuoteController(){
-
 	var qs = new QuoteService()
-
-	qs.getQuote(function(quote){
-		var template = `
-		
+	qs.getQuote(drawQuote)
+	function drawQuote(res){
+		var template = ''
+		template =`
+		<p>${res.quote}</p>
 		`
-
-	})
+		document.getElementById('quote').innerHTML = template
+	}
+	
 }

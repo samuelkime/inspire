@@ -9,10 +9,12 @@ function TodoService() {
 		//do this without breaking the controller/service responsibilities
 	}
 
-	this.getTodos = function (draw) {
+	this.getTodos = function(draw){
 		$.get(baseUrl)
-			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
-				
+			.then(res =>{ 
+				// <-- WHY IS THIS IMPORTANT????
+			    console.log('To Do data', res)
+			    draw(res)
 			})
 			.fail(logError)
 	}
